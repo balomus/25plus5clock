@@ -10,8 +10,10 @@ function App() {
 
   return (
     <div className="App">
-      25 + 5 Clock
-      <TimerControl breakTime = {breakTime} setBreakTime={setBreakTime} sessionTime={sessionTime} setSessionTime={setSessionTime}/>
+      <h1>
+        25 + 5 Clock
+      </h1>
+      <TimerControl breakTime = {breakTime} setBreakTime={setBreakTime} sessionTime={sessionTime} setSessionTime={setSessionTime} clock={clock} setClock={setClock}/>
       <Timer clock={clock} setClock={setClock}/>
     </div>
   );

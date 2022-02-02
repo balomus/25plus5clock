@@ -1,6 +1,6 @@
 const Timer = (props) => {
     return ( 
-        <div>
+        <div id="timer">
             <div id="timer-label">
                 Session
             </div>
@@ -11,10 +11,10 @@ const Timer = (props) => {
 
             <div id="session-controls">
                 <button id="start_stop">
-                    Play/Pause
+                    <i className="fas fa-play"></i> <i className="fas fa-pause"></i>
                 </button>
                 <button id="reset">
-                    Reset
+                    <i className="fas fa-sync-alt"></i>
                 </button>
             </div>
         </div>
