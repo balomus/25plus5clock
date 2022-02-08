@@ -21,21 +21,6 @@ const TimerControl = (props) => {
             props.setSessionTime(props.sessionTime + 1);
             props.setClock(props.sessionTime + 1)
         }
-        // switch (id)
-        // {
-        //     case "break-decrement": 
-        //         props.setBreakTime(props.breakTime - 1);
-        //         break;
-        //     case "break-increment":
-        //         props.setBreakTime(props.breakTime + 1);
-        //         break;
-        //     case "session-decrement":
-        //         props.setSessionTime(props.sessionTime - 1);
-        //         break;
-        //     case "session-increment":
-        //         props.setSessionTime(props.sessionTime + 1);
-        //         break;
-        // }
     }
 
     return ( 
