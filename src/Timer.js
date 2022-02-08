@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const Timer = (props) => {
-    const [intervalId, setIntervalId] = useState(0);
+    // const [intervalId, setIntervalId] = useState(null);
 
     const handleReset = () => {
         props.setBreakTime(5);
@@ -10,7 +10,29 @@ const Timer = (props) => {
         props.setClockState("paused");
     }
 
-    const handlePausePlay = () => {
+    const handlePausePlay = () => {  
+        if (props.clockState === "paused")
+        {
+            props.setClockState("running");
+        }
+        else if (props.clockState === "running")
+        {
+            props.setClockState("paused");
+        }
+        // if (intervalId !== null)
+        // {
+        //     clearInterval(intervalId);
+        //     console.log("running clearInterval for " + intervalId);
+        //     return;
+        // }
+        // else
+        // {
+        //     setIntervalId(setInterval(() => {
+        //         props.setClock(props.clock - 1);
+        //         console.log("setting clock to " + props.clock - 1);
+        //     }, 1000));
+        // }
+
         // if (intervalId)
         // {
         //     clearInterval(intervalId);

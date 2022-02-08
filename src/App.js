@@ -6,15 +6,40 @@ function App() {
 
   const [breakTime, setBreakTime] = useState(5);
   const [sessionTime, setSessionTime] = useState(25);
-  const [clock, setClock] = useState(sessionTime);
+  const [clock, setClock] = useState([sessionTime]);
   const [clockState, setClockState] = useState("paused");
+  const [intervalId, setIntervalId] = useState();
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setClock(clock => clock - 1);
-  //   }, 1000);
-  //   return () => clearInterval(interval);
-  // }, []);
+  useEffect(() => {
+    if (clockState === "running")
+    {
+      setIntervalId(setInterval(() => 
+      {
+        countDown();
+      }, 1000))
+    }
+    else if (clockState === "paused")
+    {
+      clearInterval(intervalId);
+      console.log("clearing clock " + intervalId);
+    }
+  }, [clockState]);
+
+  const countDown = () => 
+  {
+    setClock((clock) => {
+      console.log(clock);
+      if (clock > 0)
+      {
+        return clock - 1;
+      }
+      else 
+      {
+        setClockState("paused");
+        return 0;
+      }
+    });
+  }
 
   return (
     <div className="App">
