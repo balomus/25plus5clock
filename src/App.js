@@ -68,6 +68,7 @@ function App() {
 
   const switchTimerType = () =>
   {
+    document.getElementById("beep").play();
     if (timerType === "Session")
     {
       setTimerType("Break");

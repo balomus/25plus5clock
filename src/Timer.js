@@ -13,6 +13,10 @@ const Timer = (props) => {
             props.setClock([25, 0]);
         }
         props.setClockState("paused");
+        
+        document.getElementById("beep").currentTime = 0;
+        document.getElementById("beep").pause();
+
     }
 
     const handlePausePlay = () => {  
@@ -43,6 +47,9 @@ const Timer = (props) => {
                 <button id="reset" onClick={handleReset}>
                     <i className="fas fa-sync-alt"></i>
                 </button>
+            </div>
+            <div>
+                <audio id="beep" src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"></audio>
             </div>
         </div>
      );
