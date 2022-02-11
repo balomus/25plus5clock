@@ -4,15 +4,8 @@ const Timer = (props) => {
         props.setBreakTime(5);
         props.setSessionTime(25);
         props.setClock([25, 0]);
-        if (props.timerType === "Break")
-        {
-            props.setClock([5, 0]);
-        }
-        else
-        {
-            props.setClock([25, 0]);
-        }
         props.setClockState("paused");
+        props.setTimerType("Session");
         
         document.getElementById("beep").currentTime = 0;
         document.getElementById("beep").pause();

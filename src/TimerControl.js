@@ -7,42 +7,38 @@ const TimerControl = (props) => {
         {
             if (id === 'break-decrement' && props.breakTime !== 1)
             {
-                props.setBreakTime(props.breakTime - 1);
-                if (props.timerType === "Break")
-                {
-                    props.setClock([props.breakTime - 1, 0]);
-                }
+                updateTime(-1, props.breakTime, "Break");
             }
             else if (id === 'break-increment' && props.breakTime !== 60)
             {
-                props.setBreakTime(props.breakTime + 1);
-                if (props.timerType === "Break")
-                {
-                    props.setClock([props.breakTime + 1, 0])
-                }
+                updateTime(1, props.breakTime, "Break");
             }
             else if (id === 'session-decrement' && props.sessionTime !== 1)
             {
-                props.setSessionTime(props.sessionTime - 1);
-                if (props.timerType === "Session")
-                {
-                    props.setClock([props.sessionTime - 1, 0])
-                }
+                updateTime(-1, props.sessionTime, "Session");
             }
             else if (id === 'session-increment' && props.sessionTime !== 60)
             {
-                props.setSessionTime(props.sessionTime + 1);
-                if (props.timerType === "Session")
-                {
-                    props.setClock([props.sessionTime + 1, 0])
-                }
+                updateTime(1, props.sessionTime, "Session");
             }
         }
     }
 
-    const updateTime = (id, prop) => 
+    const updateTime = (valToIncOrDec, prop, timerType) => 
     {
-        
+        if (timerType === "Break")
+        {
+            props.setBreakTime(prop + valToIncOrDec);
+        }
+        else if (timerType === "Session")
+        {
+            props.setSessionTime(prop + valToIncOrDec);
+        }
+
+        if (props.timerType === timerType)
+        {
+            props.setClock([prop + valToIncOrDec, 0]);
+        }
     }
 
     return ( 
