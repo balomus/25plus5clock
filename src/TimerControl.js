@@ -3,24 +3,46 @@ const TimerControl = (props) => {
         const id = e.target.parentElement.id;
         console.log(id + " clicked");
 
-        if (id === 'break-decrement' && props.breakTime !== 1)
+        if (props.clockState === "paused")
         {
-            props.setBreakTime(props.breakTime - 1);
+            if (id === 'break-decrement' && props.breakTime !== 1)
+            {
+                props.setBreakTime(props.breakTime - 1);
+                if (props.timerType === "Break")
+                {
+                    props.setClock([props.breakTime - 1, 0]);
+                }
+            }
+            else if (id === 'break-increment' && props.breakTime !== 60)
+            {
+                props.setBreakTime(props.breakTime + 1);
+                if (props.timerType === "Break")
+                {
+                    props.setClock([props.breakTime + 1, 0])
+                }
+            }
+            else if (id === 'session-decrement' && props.sessionTime !== 1)
+            {
+                props.setSessionTime(props.sessionTime - 1);
+                if (props.timerType === "Session")
+                {
+                    props.setClock([props.sessionTime - 1, 0])
+                }
+            }
+            else if (id === 'session-increment' && props.sessionTime !== 60)
+            {
+                props.setSessionTime(props.sessionTime + 1);
+                if (props.timerType === "Session")
+                {
+                    props.setClock([props.sessionTime + 1, 0])
+                }
+            }
         }
-        else if (id === 'break-increment' && props.breakTime !== 60)
-        {
-            props.setBreakTime(props.breakTime + 1);
-        }
-        else if (id === 'session-decrement' && props.sessionTime !== 1)
-        {
-            props.setSessionTime(props.sessionTime - 1);
-            props.setClock(props.sessionTime - 1)
-        }
-        else if (id === 'session-increment' && props.sessionTime !== 60)
-        {
-            props.setSessionTime(props.sessionTime + 1);
-            props.setClock(props.sessionTime + 1)
-        }
+    }
+
+    const updateTime = (id, prop) => 
+    {
+        
     }
 
     return ( 
